@@ -1,10 +1,6 @@
-# React, Redux, & Enzmye - Mastering Apps & Tests
-"React, Redux, & Enzmye - Mastering Apps & Tests": Official guide repo used to accompany video lessons.
+# React, Redux, & Enzyme, Jest
 
-This provides the completed projects for:
+Completed projects:
 - notetoself + tests
 - flashcardpro + tests
 - jeopardy + tests
-
-Check out the original course: 
-https://www.udemy.com/react-testing/
