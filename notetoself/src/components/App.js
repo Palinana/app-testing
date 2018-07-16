@@ -21,11 +21,17 @@ class App extends Component {
 
   submit() {
     const { notes, text } = this.state;
-
     notes.push({ text });
-
     this.setState({ notes });
 
+  //   handleSubmit(e){
+  //   e.preventDefault();
+  //   e.target.reset();
+  // }
+  // <form onSubmit={this.handleSubmit.bind(this)}>
+  //  ...
+  // </form>
+    
     bake_cookie(cookie_key, this.state.notes);
   }
 
