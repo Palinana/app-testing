@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setStack, loadStacks } from '../actions';
 
-class StackList extends Component{
+export class StackList extends Component{
     componentDidMount() { // load only for first time
         if(this.props.stacks.length === 0) this.props.loadStacks(stacks); //json data    
     }
