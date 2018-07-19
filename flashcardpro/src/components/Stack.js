@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 
-class Stack extends Component{
+export class Stack extends Component{
     render() {
         const { title, cards } = this.props.stack;
         return (
