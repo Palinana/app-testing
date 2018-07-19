@@ -9,7 +9,7 @@ class Stack extends Component{
         return (
             <div>
                 <Link className="link-home" to="/">
-                    <h4>Home</h4>
+                    <h4>Back</h4>
                 </Link>
                 <h3>{title}</h3>
                 <br />
@@ -26,7 +26,7 @@ class Stack extends Component{
 }
 
 function mapStateToProps(state){
-    return { stack: state }
+    return { stack: state.stack }
 }
 
 export default connect(mapStateToProps, null)(Stack);
