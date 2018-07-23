@@ -1,7 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { StackForm } from '../components/StackForm';
-// import { stack } from '../data/fixtures'; 
+
+const changeTitle = 'change title';
+const changePrompt = 'change prompt';
+const changeAnswer = 'change answer';
 
 describe('StackForm', () => {
     const stackForm = shallow(<StackForm />);
@@ -28,18 +31,22 @@ describe('StackForm', () => {
     //form fucntionality
     describe('updating the title', () => {
         beforeEach(() => {                      //onChange
-            stackForm.find('FormControl').simulate('change', { target: { value: 'change title' }})
+            stackForm.find('FormControl').simulate('change', { target: { value: changeTitle }})
         });
 
         it('updates the title in the state', () => {
             //console.log(stackForm.state()); //{ title: 'change title', cards: [] }}
-            expect(stackForm.state().title).toEqual('change title')
+            expect(stackForm.state().title).toEqual(changeTitle)
         });
     });
 
     describe('adding a new card', () => {
         beforeEach(() => {
             stackForm.find('Button').at(0).simulate('click')
+        });
+        //as we ran beforeEach for every it  and as result have 4 cards
+        afterEach(() => {
+            stackForm.setState({ cards:[] });
         });
 
         it('adds a new card to the state', () => {
@@ -53,6 +60,29 @@ describe('StackForm', () => {
         it('renders the answer section', () => {        //since don't have access to it text
             expect(stackForm.find('ControlLabel').at(2).props().children).toEqual('Answer:');
         });
+
+        describe('updating the card prompt', () => {
+            beforeEach(() => {                  //will affect previous descripe test, so afterEach was added to the top
+                stackForm.find('FormControl').at(1).simulate('change', { target: {value: changePrompt }})
+            });
+
+            it('updates the prompt in the state', () => {
+                //console.log(stackForm.state())
+                expect(stackForm.state().cards[0].prompt).toEqual(changePrompt)
+            });
+        });
+
+        describe('updating the card answer', () => {
+            beforeEach(() => {                  //will affect previous descripe test, so afterEach was added to the top
+                stackForm.find('FormControl').at(2).simulate('change', { target: {value: changeAnswer }})
+            });
+
+            it('updates the answer in the state', () => {
+                //console.log(stackForm.state())
+                expect(stackForm.state().cards[0].answer).toEqual(changeAnswer)
+            });
+        });
+
     });
 
 });
