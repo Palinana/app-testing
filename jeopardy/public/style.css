@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    padding: 1%;
+}
+
+.link-home {
+   position: absolute;
+   left: 30px;
+   top: 30px;
+}
